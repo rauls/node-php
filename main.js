@@ -13,6 +13,8 @@ function runPHP(req, response, next, phpdir){
 		file = path.join(phpdir, "index.php"); 
 	} else if(fs.statSync(file).isDirectory()){
 		file = path.join(file, "index.php"); 
+	} else {
+		return response.json( { code: 5, message: "Could not find file to run : " + file  } );
 	}
 	
 	var pathinfo = ""; 
