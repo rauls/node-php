@@ -81,7 +81,7 @@ function runPHP(req, response, next, phpdir){
 			res += data.toString(); 
 		}); 
 		php.stderr.on("data", function(data){
-			err += err.toString(); 
+			err += data.toString(); 
 		}); 
 		php.on("error", function(err){
 			console.error(err); 
